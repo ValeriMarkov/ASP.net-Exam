@@ -1,0 +1,49 @@
+﻿@model List<Car>
+
+@if (Model == null || Model.Count == 0)
+{
+    <h2>No cars on parking lot</h2>
+}
+else
+{
+    <br />
+    <div class="text">
+        <p>List of cars in the parking lot</p>
+    </div>
+    <br />
+
+    <table class="styled-table col-6">
+        <thead>
+            <tr>
+                <th>Car Brand:</th>
+                <th>Car License Plate:</th>
+            </tr>
+        </thead>
+    </table>
+    @foreach (var car in Model)
+    {
+        <table class="styled-table col-6">
+            <tbody>
+                <tr>
+                    <td onclick="getCar('@car.Id')">@car.CarBrand</td>
+                    <td onclick="getCar('@car.Id')">@car.LicensePlate</td>
+                </tr>
+            </tbody>
+        </table>
+    }
+}
+
+
+<asp:textbox id="TheDateTB" runat="server" xmlns:asp="#unknown"></asp:textbox>
+<asp:button id="TheButton" runat="server" text="Press me" onclick="TheButton_Click" xmlns:asp="#unknown" />
+
+
+
+
+
+
+<script>
+    const getCar = (id) => {
+        window.location = `/Home/GetCar/${id}`
+    }
+</script>

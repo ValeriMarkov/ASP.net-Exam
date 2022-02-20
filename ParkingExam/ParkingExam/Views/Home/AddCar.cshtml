@@ -1,0 +1,19 @@
+﻿@model Car
+
+<div>
+    <p>Enter the necessary requests to add the car to the parking lot.</p>
+</div>
+
+<form asp-controller="Home" asp-action="SaveCar">
+    <label asp-for="PersonName"></label>
+    <input class="form-control" asp-for="PersonName" />
+
+    <label asp-for="CarBrand"></label>
+    <input class="form-control" asp-for="CarBrand" />
+
+    <label asp-for="LicensePlate"></label>
+    <input class="form-control" asp-for="LicensePlate" />
+
+    <br />
+    <button class="btn btn-primary">Add car</button>
+</form>
